@@ -1,53 +1,56 @@
 
 temp = input('What tempature')
-print(temp)
 not_solved = True
 temptype = ''
 tempnum = ''
+#speratre numbers and letters
 for characters in temp:
     if characters.isalpha():
         temptype += characters
     if characters.isdigit():
         tempnum += characters
 tempnum = int(tempnum)
-print(tempnum)
-print(temptype)
+#main loop so it can keep trying untill solved.
 while not_solved:
+    next = input('Conversion Options: \n 1. Convert to Celsius \n 2. Convert to Fahrenheit \n 3. Convert to Kevlin')
     if temptype == 'K':
-        next = input('what would you like to convert to C or F')
-        if next == 'C' or 'F':
+        if next == '1' or '2':
             tempnum = tempnum - 273.15
-            if next == 'C':
-                print('new temp is ' + str(tempnum) + 'C')
-            elif next == 'F':
+            if next == '1':
+                print('converted temperature' + str(tempnum) + ' Celsius')
+            elif next == '2':
                 tempnum = tempnum*1.8  + 32
-                print('new temp is ' + str(tempnum) + 'F')
+                print('converted temperature' + str(tempnum) + ' Fahrenheit')
             not_solved = False
+        elif next == '3':
+            print('you already have it in Kelvin')
         else:
-            next = input('Please put in C for Celsius or F for Fahrenheit capital')
+            pass
 
     if temptype == 'C':
-        next = input('what would you like to convert to K or F')
-        if next == 'K' or 'F':
-            if next == 'K':
+        if next == '2' or '3':
+            if next == '3':
                 tempnum = tempnum + 273.15
-                print('new temp is ' + str(tempnum) + 'K')
-            elif next == 'F':
+                print('converted temperature' + str(tempnum) + ' Kelvin')
+            elif next == '2':
                 tempnum = tempnum * 1.8 + 32
-                print('new temp is ' + str(tempnum) + 'F')
+                print('converted temperature' + str(tempnum) + ' Fahrenheit')
             not_solved = False
+        elif next == '1':
+            print('It is already in Celsius')
         else:
-            next = input('Please put in K for Kelvin or F for Fahrenheit capital')
+            pass
     if temptype == 'F':
-        next = input('what would you like to convert to K or C')
-        if next == 'K' or 'C':
+        if next == '3' or '1':
             tempnum = (tempnum - 32) * (5/9)
-            if next == 'K':
+            if next == '3':
                 tempnum = tempnum + 273.15
-                print('new temp is ' + str(tempnum) + 'K')
-            elif next == 'C':
-                print('new temp is ' + str(tempnum) + 'C')
+                print('converted temperature' + str(tempnum) + ' Kelvin')
+            elif next == '1':
+                print('converted temperature' + str(tempnum) + ' Celsius')
             not_solved = False
+        elif next == '2':
+            print('It is already in Fahrenheit')
         else:
-            next = input('Please put in K for Kelvin or C for Celsius capital')
+            pass
 
